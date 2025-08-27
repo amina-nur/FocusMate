@@ -1,2 +1,3 @@
-/* If you are not using a build tool with Tailwind CSS, replace the directives with the compiled Tailwind CSS output or import the CDN version: */
-/* @import "https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
