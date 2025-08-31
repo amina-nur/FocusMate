@@ -3,7 +3,7 @@ import "./App.css";
 
 // Importing components
 import AddTaskForm from "./components/AddTaskForm";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/Todolist";
 import TodoItem from "./components/TodoItem";
 import PlantVisualizer from "./components/PlantVisualizer";
 import MotivationalQuote from "./components/MotivationalQuote";
