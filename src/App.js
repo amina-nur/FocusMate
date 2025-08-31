@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="/focusMate.png" alt="FocusMate Logo" />
         <h1>FocusMate</h1>
       </header>
       <main>
