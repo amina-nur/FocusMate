@@ -1,5 +1,4 @@
 import {useState} from "react";
-import logo from "./assets/focusMate.png";
 import "./App.css";
 
 // Importing components
