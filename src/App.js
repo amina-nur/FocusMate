@@ -2,8 +2,9 @@ import {useState} from "react";
 import "./App.css";
 
 // Importing components
-import AddTask from "./components/AddTask";
+import AddTaskForm from "./components/AddTaskForm";
 import TodoList from "./components/TodoList";
+import TodoItem from "./components/TodoItem";
 import PlantVisualizer from "./components/PlantVisualizer";
 import MotivationalQuote from "./components/MotivationalQuote";
 import PomodoroTimer from "./components/PomodoroTimer";
@@ -28,8 +29,8 @@ function App() {
       </header>
       <main>
         <MotivationalQuote />
-        <AddTask addTask={addTask} />
-        <TodoList tasks={tasks} removeTask={removeTask} />
+        <AddTaskForm addTask={addTask} />
+        <TodoItem tasks={tasks} removeTask={removeTask} />
         <PlantVisualizer tasks={tasks} />
         <PomodoroTimer />
       </main>
