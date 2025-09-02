@@ -3,8 +3,7 @@ import "./App.css";
 
 // Importing components
 import AddTaskForm from "./components/AddTaskForm";
-import TodoList from "./components/Todolist";
-import TodoItem from "./components/TodoItem";
+import Todolist from "./components/Todolist";
 import PlantVisualizer from "./components/PlantVisualizer";
 import MotivationalQuote from "./components/MotivationalQuote";
 import PomodoroTimer from "./components/PomodoroTimer";
@@ -24,13 +23,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="/focusMate.png" alt="FocusMate Logo" />
+        <img src="/focusMate.png" alt="focusMate Logo" />
         <h1>FocusMate</h1>
       </header>
       <main>
         <MotivationalQuote />
         <AddTaskForm addTask={addTask} />
-        <TodoItem tasks={tasks} removeTask={removeTask} />
+        <Todolist/>
         <PlantVisualizer tasks={tasks} />
         <PomodoroTimer />
       </main>
