@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { useEffect } from "react";
 import "./App.css";
 
 // Importing components
@@ -9,16 +10,35 @@ import MotivationalQuote from "./components/MotivationalQuote";
 import PomodoroTimer from "./components/PomodoroTimer";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [todo, setTodos] = useState([]);
   
-  const addTask = (task) => {
-    setTasks([...tasks, task]);
+  const addTodo = (task) => {
+    const newTodo = { id: Date.now(), text: task, completed: false };
+    setTodos([...todo, newTodo]);
   };
 
-  const removeTask = (index) => {
-    const newTasks = tasks.filter((_, i) => i !== index);
-    setTasks(newTasks);
+  const deleteTodo = (id) => {
+    setTodos(todo.filter((todo) => todo.id !== id));
   };
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todo.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+  // Load saved todos on first render
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(savedTodos);
+  }, []);
+
+  // Save todos whenever they change
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todo));
+  }, [todo]);
+
 
   return (
     <div className="App">
@@ -29,8 +49,8 @@ function App() {
       <main>
         <MotivationalQuote />
         <AddTaskForm addTask={addTask} />
-        <Todolist/>
-        <PlantVisualizer tasks={tasks} />
+        <Todolist todos= {todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <PlantVisualizer task={todo} />
         <PomodoroTimer />
       </main>
       <footer>
