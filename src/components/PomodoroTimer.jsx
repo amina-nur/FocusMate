@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import MotivationalQuote from "./MotivationalQuote";
 
 function PomodoroTimer() {
   constant [time, setTime] = useState(1500); // 25 minutes in seconds
@@ -54,6 +55,8 @@ function PomodoroTimer() {
             setTime(300);
             setIsActive(false);
           }}>BREAK</button>
+
+          <MotivationalQuote />
         </div>
       </div>
     </div>
