@@ -4,7 +4,7 @@ import "./App.css";
 
 // Importing components
 import AddTaskForm from "./components/AddTaskForm";
-import Todolist from "./components/Todolist";
+import TodoList from "./components/TodoList";
 import PlantVisualizer from "./components/PlantVisualizer";
 import MotivationalQuote from "./components/MotivationalQuote";
 import PomodoroTimer from "./components/PomodoroTimer";
@@ -49,7 +49,7 @@ function App() {
       <main>
         <MotivationalQuote />
         <AddTaskForm addTask={addTask} />
-        <Todolist todos= {todo} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <TodoList todos= {todo} onToggle={toggleTodo} onDelete={deleteTodo} />
         <PlantVisualizer todos={todo} />
         <PomodoroTimer />
       </main>
