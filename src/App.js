@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
 
@@ -28,6 +28,10 @@ function App() {
       )
     );
   };
+  const addTask = (task) => {
+  setTasks([...task, task]);
+};
+
   // Load saved todos on first render
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
@@ -48,7 +52,7 @@ function App() {
       </header>
       <main>
         <MotivationalQuote />
-        <AddTaskForm addTask={addTask} />
+        <AddTaskForm onAdd={addTask} />
         <TodoList todos= {todo} onToggle={toggleTodo} onDelete={deleteTodo} />
         <PlantVisualizer todos={todo} />
         <PomodoroTimer />

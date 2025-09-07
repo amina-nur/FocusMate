@@ -26,6 +26,9 @@ function TodoList(){
       )
     );
   };
+  const addTask = (task) => {
+  setTasks([...task, task]);
+};
 
     return (
         <div>

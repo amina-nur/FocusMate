@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import MotivationalQuote from "./MotivationalQuote";
 
 function PomodoroTimer() {
-  constant [time, setTime] = useState(1500); // 25 minutes in seconds
-  constant [isActive, setIsActive] = useState(false);
-  constant [isBreak, setIsBreak] = useState(false);
+  const [time, setTime] = useState(1500); // 25 minutes in seconds
+  const [isActive, setIsActive] = useState(false);
+  const [isBreak, setIsBreak] = useState(false);
 
   useEffect(() => {
     let interval =null;

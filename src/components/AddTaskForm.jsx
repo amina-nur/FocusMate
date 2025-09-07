@@ -7,6 +7,7 @@ function AddTaskForm() {
     if (!text.trim()) return;
     onAdd(text);
     setText(""); }  
+
   
   return (
     <form onSubmit={handleSubmit} className='flex justify-center gap-2 mb-4'>
