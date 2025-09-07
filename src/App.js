@@ -49,8 +49,8 @@ function App() {
       <main>
         <MotivationalQuote />
         <AddTaskForm addTask={addTask} />
-        <Todolist todos= {todos} onToggle={toggleTodo} onDelete={deleteTodo} />
-        <PlantVisualizer task={todo} />
+        <Todolist todos= {todo} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <PlantVisualizer todos={todo} />
         <PomodoroTimer />
       </main>
       <footer>
