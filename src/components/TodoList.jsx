@@ -4,7 +4,6 @@ import "./App.css";
 
 
 function TodoList({ tasks, deleteTask, toggleTask }) {
-  const [tasks, setTasks] = useState([]);
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
