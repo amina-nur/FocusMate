@@ -13,7 +13,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [tasks, setTasks] = useState([]);
 
-  // ---- Todo handlers ----
+  //Todo handlers
   const addTodo = (task) => {
     const newTodo = { id: Date.now(), text: task, completed: false };
     setTodos([...todos, newTodo]);
@@ -31,13 +31,13 @@ function App() {
     );
   };
 
-  // ---- Task handler ----
+  // task handlers
   const addTask = (task) => {
     const newTask = { id: Date.now(), text: task };
     setTasks([...tasks, newTask]);
   };
 
-  // ---- Local storage ----
+  // Local storage
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(savedTodos);
@@ -74,7 +74,7 @@ function App() {
         {/* Home page */}
         <Route path="/" element={<h1>Welcome to FocusMate!</h1>} />
 
-        {/* Task list page (with quote + form) */}
+        {/* Task list page (with quote and form) */}
         <Route
           path="/tasks"
           element={
