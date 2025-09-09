@@ -10,45 +10,32 @@ import MotivationalQuote from "./components/MotivationalQuote";
 import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
-  const [todos, setTodos] = useState([]);
   const [tasks, setTasks] = useState([]);
 
-  //Todo handlers
-  const addTodo = (task) => {
-    const newTodo = { id: Date.now(), text: task, completed: false };
-    setTodos([...todos, newTodo]);
+  // Task handlers
+  const addTask = (text) => {
+    const newTask = { id: Date.now(), text: text, completed: false };
+    setTasks([...tasks, newTask]);
   };
 
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const toggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   };
 
-  // task handlers
-  const addTask = (task) => {
-    const newTask = { id: Date.now(), text: task };
-    setTasks([...tasks, newTask]);
-  };
 
   // Local storage
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-    setTodos(savedTodos);
-
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(savedTasks);
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -56,18 +43,17 @@ function App() {
 
   return (
     <Router>
-      <header className="App-header">
-        <img src="/focusMate.png" alt="focusMate Logo" />
-        <h1>FocusMate</h1>
-        <p>Your companion for focused work and growth</p>
-      </header>
-      {/* Navbar */}
-      <nav className="flex gap-6 p-4 bg-gray-200">
-        <Link to="/">Home</Link>
-        <Link to="/tasks">Tasks</Link>
-        <Link to="/timer">Pomodoro</Link>
-        <Link to="/visualizer">Plant Visualizer</Link>
-      </nav>
+   <header className="App-header">
+  <div className="header-container">
+    <img src="/focusMate.png" alt="FocusMate Logo" className="logo" />
+    <nav className="nav-links">
+      <Link to="/">Home</Link>
+      <Link to="/tasks">Tasks</Link>
+      <Link to="/timer">Pomodoro</Link>
+      <Link to="/visualizer">Visualizer</Link>
+    </nav>
+  </div>
+  </header>
 
       {/* Routes */}
       <Routes>
@@ -90,7 +76,7 @@ function App() {
         <Route path="/timer" element={<PomodoroTimer />} />
 
         {/* Plant visualizer page */}
-        <Route path="/visualizer" element={<PlantVisualizer todos={todos} />} />
+        <Route path="/visualizer" element={<PlantVisualizer tasks={tasks} />} />
       </Routes>
 
       {/* Footer */}

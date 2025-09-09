@@ -1,39 +1,40 @@
-import AddTaskForm from "./AddTaskForm";
-import TodoItem from "./TodoItem";
-import './App.css';
+import MotivationalQuote from "./MotivationalQuote";
 import { useState } from "react";
+import "./App.css";
 
 
-function TodoList({tasks, setTasks}) {
-  const [todo, setTodos] = useState([]);
+function TodoList({ tasks, deleteTask, toggleTask }) {
+  const [tasks, setTasks] = useState([]);
 
-
-  const deleteTodo = (id) => {
-    setTodos(todo.filter((todo) => todo.id !== id));
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const toggleTodo = (id) => {
-    setTodos(
-      todo.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
       )
     );
   };
-
     return (
+    <div className="todo-container">
+      <MotivationalQuote /> {/* Shows quote above the list */}
       <ul className="todo-list">
-  {tasks.map((task) => (
-    <li key={task.id} className="todo-item">
-      <input
-        type="checkbox"
-        checked={task.completed}
-        onChange={() => toggleTodo(task.id)}
-      />
-      <span className={task.completed ? "completed" : ""}>{task.text}</span>
-      <button onClick={() => deleteTodo(task.id)}>Delete</button>
-    </li>
-  ))}
-</ul>
-    );
-  }
+        {tasks.map((task) => (
+          <li key={task.id} className="todo-item">
+            <input
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => toggleTask(task.id)}
+            />
+            <span className={task.completed ? "completed" : ""}>{task.text}</span>
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default TodoList;
