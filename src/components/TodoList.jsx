@@ -1,5 +1,5 @@
 import MotivationalQuote from "./MotivationalQuote";
-import "./App.css";
+import "../App.css";
 
 
 function TodoList({ tasks, deleteTask, toggleTask }) {
