@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import flowerImg from "./components/flowers.jpg";
 import "./App.css";
 
 // Importing components
@@ -59,11 +60,11 @@ function App() {
       <Route
       path="/"
       element={<div>style={{
-        backgroundImage: "url('/flowers.jpg')",
+        backgroundImage: `url(${flowerImg})`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
-        width: "100%", }}
+        width: "100%",}}
       <h1>Welcome to FocusMate!</h1>
     </div>
       }
