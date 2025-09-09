@@ -33,7 +33,6 @@ function MotivationalQuote() {
   useEffect(() => {
     fetchQuote();
   }, []);
-}
 
   // Conditional rendering based on state
   if (loading) {
@@ -54,6 +53,7 @@ function MotivationalQuote() {
       </div>
     );
   }
+}
 
 
 export default MotivationalQuote;

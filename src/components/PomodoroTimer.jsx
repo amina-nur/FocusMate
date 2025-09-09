@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import PomodoroTimer from "./pomodoroTimer.css";
+import "./pomodoroTimer.css"; 
 
 function PomodoroTimer() {
   const [time, setTime] = useState(1500); // 25 minutes in seconds
@@ -47,7 +47,7 @@ function PomodoroTimer() {
         <h2>{formatTime(time)}</h2>
         <div className="Timer-buttons">
           <button className="start" onClick={toggleTimer}>
-            {isActive ? "PAUSE"  :  "START"}
+            {isActive ? "Pause"  :  "Start"}
           </button>
           <button onClick={resetTimer}>Reset</button>
           <button className="break" onClick={() => {

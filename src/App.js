@@ -60,7 +60,7 @@ function App() {
         {/* Home page */}
         <Route path="/" element={<h1>Welcome to FocusMate!</h1>} />
 
-        {/* Task list page (with quote and form) */}
+        {/* Todo list page (with quote and form) */}
         <Route
           path="/tasks"
           element={
