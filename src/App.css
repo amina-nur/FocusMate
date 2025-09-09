@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: pink;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -39,7 +41,7 @@
 }
 
 .logo {
-  width: 75px; 
+  width: 100px; 
   height: auto;
 }
 
