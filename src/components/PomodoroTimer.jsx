@@ -54,7 +54,7 @@ function PomodoroTimer() {
             setIsBreak(true);
             setTime(300);
             setIsActive(false);
-          }}> BREAK </button>
+          }}> Break </button>
         </div>
       </div>
     </div>

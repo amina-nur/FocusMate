@@ -23,15 +23,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: pink;
 }
 
 .App-link {
   color: #460404;
-}
-.App-header {
-  background-color: #f5f5f5;
-  padding: 10px 20px;
 }
 
 .header-container {

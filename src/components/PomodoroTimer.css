@@ -16,21 +16,26 @@ h1 {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 5px solid #0f881f;
+  border: 5px solid #07440f;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  margin: 20px auto;
   background-color: #f0f0f0;
+}
+
+
+.timer-buttons {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
 }
 
 .timer-buttons button {
   padding: 10px 20px;
-  margin: 5px;
   border-radius: 12px;
   border: none;
-  background-color: #0f881f;
+  background-color: #07440f;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -38,5 +43,6 @@ h1 {
 }
 
 .timer-buttons button:hover {
-  background-color: #0b6b15;
+  background-color: #0b5e13;
 }
+
