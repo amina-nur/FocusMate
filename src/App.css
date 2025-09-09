@@ -3,13 +3,6 @@
   background-color: pink;
   min-height: 100vh;
 }
-.home-bg {
-  background-image: url('/flowers.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  width: 100%;
-}
 
 .App-logo {
   height: 40vmin;
