@@ -4,7 +4,7 @@
   min-height: 100vh;
 }
 .home-bg {
-  background-image: url('/Flowers.jpg');
+  background-image: url('/flowers.jpg');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
