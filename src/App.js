@@ -58,7 +58,12 @@ function App() {
     <Routes>
       <Route
       path="/"
-      element={<div className="home-bg">
+      element={<div>style={{
+        backgroundImage: "url('/flowers.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+        width: "100%", }}
       <h1>Welcome to FocusMate!</h1>
     </div>
       }
