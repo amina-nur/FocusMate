@@ -34,11 +34,11 @@ function PomodoroTimer() {
  }
   const toggleTimer = () => {
     setIsActive(!isActive);
+  }
   const resetTimer = () => {
-      setIsActive(false);
-      setTime(1500);
-      setIsBreak(false);
-    }
+    setIsActive(false);
+    setIsBreak(false);
+    setTime(1500);
   }
   return(
     <div className="flex justify-center p-5">
@@ -49,13 +49,12 @@ function PomodoroTimer() {
           <button className="start" onClick={toggleTimer}>
             {isActive ? "PAUSE" : "START"}
           </button>
-          <button className="stop" onClick={resetTimer}>RESET</button>
+          <button onClick={resetTimer}>Reset</button>
           <button className="break" onClick={() => {
             setIsBreak(true);
             setTime(300);
             setIsActive(false);
-          }}>BREAK</button>
-
+          }}> BREAK</button>
           <MotivationalQuote />
         </div>
       </div>
