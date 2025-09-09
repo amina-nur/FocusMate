@@ -41,7 +41,7 @@ function PomodoroTimer() {
     setTime(1500);
   }
   return(
-    <div className="flex justify-center p-5">
+    <div className="pomdoro-container">
       <h1>Pomodoro Timer</h1>
       <div className="timer-circle">
         <h2>{formatTime(time)}</h2>
