@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function AddTaskForm() {
+function AddTaskForm({ onAdd}) {
    const [text, setText] = useState("");
     
    const handleSubmit = (e) => { e.preventDefault();

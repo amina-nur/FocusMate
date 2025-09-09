@@ -3,9 +3,9 @@ import TodoItem from "./TodoItem";
 import { useState } from "react";
 
 
-function TodoList(){
-  const [todo, setTodos] = useState([
-    ]);
+function TodoList({tasks, setTasks}) {
+  const [todo, setTodos] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const addTodo = (task) => {
     const newTodo = { 
@@ -26,8 +26,8 @@ function TodoList(){
       )
     );
   };
-  const addTask = (task) => {
-  setTasks([...task, task]);
+  const addTask = (tasks) => {
+  setTasks([...tasks, tasks]);
 };
 
     return (

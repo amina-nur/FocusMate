@@ -11,6 +11,7 @@ import PomodoroTimer from "./components/PomodoroTimer";
 
 function App() {
   const [todo, setTodos] = useState([]);
+  const [tasks, setTasks] = useState([]); 
   
   const addTodo = (task) => {
     const newTodo = { id: Date.now(), text: task, completed: false };
@@ -28,8 +29,8 @@ function App() {
       )
     );
   };
-  const addTask = (task) => {
-  setTasks([...task, task]);
+  const addTask = (tasks) => {
+  setTasks([...tasks, tasks]);
 };
 
   // Load saved todos on first render
@@ -53,7 +54,7 @@ function App() {
       <main>
         <MotivationalQuote />
         <AddTaskForm onAdd={addTask} />
-        <TodoList todos= {todo} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <TodoList tasks={tasks} setTasks={setTasks} />
         <PlantVisualizer todos={todo} />
         <PomodoroTimer />
       </main>
