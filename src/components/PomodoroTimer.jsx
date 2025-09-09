@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import MotivationalQuote from "./MotivationalQuote";
+import PomodoroTimer from "./pomodoroTimer.css";
 
 function PomodoroTimer() {
   const [time, setTime] = useState(1500); // 25 minutes in seconds
@@ -43,19 +43,18 @@ function PomodoroTimer() {
   return(
     <div className="flex justify-center p-5">
       <h1>Pomodoro Timer</h1>
-      <div className="Timer">
+      <div className="timer-circle">
         <h2>{formatTime(time)}</h2>
-        <div className="buttons">
+        <div className="Timer-buttons">
           <button className="start" onClick={toggleTimer}>
-            {isActive ? "PAUSE" : "START"}
+            {isActive ? "PAUSE"  :  "START"}
           </button>
           <button onClick={resetTimer}>Reset</button>
           <button className="break" onClick={() => {
             setIsBreak(true);
             setTime(300);
             setIsActive(false);
-          }}> BREAK</button>
-          <MotivationalQuote />
+          }}> BREAK </button>
         </div>
       </div>
     </div>

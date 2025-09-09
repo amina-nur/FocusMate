@@ -67,7 +67,7 @@ function App() {
             <div>
               <MotivationalQuote />
               <AddTaskForm onAdd={addTask} />
-              <TodoList tasks={tasks} setTasks={setTasks} />
+              <TodoList tasks={tasks} setTasks={setTasks} toggleTask={toggleTask} deleteTask={deleteTask}/>
             </div>
           }
         />

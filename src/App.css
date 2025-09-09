@@ -83,7 +83,7 @@
 }
 
 .completed {
-  text-decoration: strike-through;
+  text-decoration: line-through;
   color: rgb(8, 8, 8);
 }
 

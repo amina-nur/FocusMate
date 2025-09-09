@@ -26,13 +26,14 @@ function MotivationalQuote() {
         setLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
-        setLoading(false);
+        setQuote("Keep pushing forward!");
+        setAuthor("Anonymous");
       });
   };
   useEffect(() => {
     fetchQuote();
   }, []);
+}
 
   // Conditional rendering based on state
   if (loading) {
@@ -53,6 +54,6 @@ function MotivationalQuote() {
       </div>
     );
   }
-}
+
 
 export default MotivationalQuote;
