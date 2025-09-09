@@ -1,18 +1,12 @@
 import AddTaskForm from "./AddTaskForm";
 import TodoItem from "./TodoItem";
+import './App.css';
 import { useState } from "react";
 
 
 function TodoList({tasks, setTasks}) {
   const [todo, setTodos] = useState([]);
 
-  const addTodo = (task) => {
-    const newTodo = { 
-      id: Date.now(),
-       text: task,
-        completed: false };
-    setTodos([...todo, newTodo]);
-  };
 
   const deleteTodo = (id) => {
     setTodos(todo.filter((todo) => todo.id !== id));
@@ -25,26 +19,21 @@ function TodoList({tasks, setTasks}) {
       )
     );
   };
-  const addTask = (tasks) => {
-  setTasks([...tasks, tasks]);
-};
 
     return (
-        <div>
-            <h1> Your To do list</h1>
-              <AddTaskForm addTask={addTask} />
-              {todo.length === 0 && <p>No tasks added yet!</p>}
-              
-              <ul>
-              {todo.map((t) => (
-              <TodoItem key ={todo.id}
-              todo={todo}
-              onToggle={toggleTodo}
-              onDelete={deleteTodo}
-               />
-              ))}
-              </ul>
-        </div>
-    )
-}
+      <ul className="todo-list">
+  {tasks.map((task) => (
+    <li key={task.id} className="todo-item">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleTodo(task.id)}
+      />
+      <span className={task.completed ? "completed" : ""}>{task.text}</span>
+      <button onClick={() => deleteTodo(task.id)}>Delete</button>
+    </li>
+  ))}
+</ul>
+    );
+  }
 export default TodoList;

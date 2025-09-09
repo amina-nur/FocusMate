@@ -25,8 +25,69 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #460404;
 }
+.App-header {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 75px; 
+  height: auto;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #5c0404;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #0f881f; /
+}
+
+.todo-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+.checkbox {
+  margin-right: 10px;
+}
+
+.completed {
+  text-decoration: strike-through;
+  color: rgb(8, 8, 8);
+}
+
+
 
 @keyframes App-logo-spin {
   from {
