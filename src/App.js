@@ -57,13 +57,23 @@ function App() {
 
     <Routes>
       <Route
-      path="/"
-      element={<div>style={{
-        backgroundColor: 'pink',}}
+  path="/"
+  element={
+    <div
+      style={{
+        backgroundColor: 'pink',
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+        color: "white"
+      }}
+    >
       <h1>Welcome to FocusMate!</h1>
     </div>
-      }
-        />
+  }
+/>
 
         {/* Todo list page (with quote and form) */}
         <Route
