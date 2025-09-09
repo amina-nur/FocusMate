@@ -55,10 +55,14 @@ function App() {
   </div>
   </header>
 
-      {/* Routes */}
-      <Routes>
-        {/* Home page */}
-        <Route path="/" element={<h1>Welcome to FocusMate!</h1>} />
+    <Routes>
+      <Route
+      path="/"
+      element={<div className="home-bg">
+      <h1>Welcome to FocusMate!</h1>
+    </div>
+      }
+        />
 
         {/* Todo list page (with quote and form) */}
         <Route
@@ -68,9 +72,9 @@ function App() {
               <MotivationalQuote />
               <AddTaskForm onAdd={addTask} />
               <TodoList tasks={tasks} setTasks={setTasks} toggleTask={toggleTask} deleteTask={deleteTask}/>
-            </div>
-          }
-        />
+              </div>
+            }
+            />
 
         {/* Pomodoro timer page */}
         <Route path="/timer" element={<PomodoroTimer />} />

@@ -1,7 +1,7 @@
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-function PlantVisualizer({ todos }) {
-  const completedCount = todos.filter(task => task.completed).length;
+function PlantVisualizer({ tasks }) {
+  const completedCount = tasks.filter(task => task.completed).length;
 
   if (completedCount === 0) {
     return <h2>Complete your goals, bloom your plant </h2>;
