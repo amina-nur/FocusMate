@@ -1,69 +1,105 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 // Importing components
-import AddTaskForm from "./components/AddTaskForm";
 import TodoList from "./components/TodoList";
 import PlantVisualizer from "./components/PlantVisualizer";
-import MotivationalQuote from "./components/MotivationalQuote";
 import PomodoroTimer from "./components/PomodoroTimer";
+import MotivationalQuote from "./components/MotivationalQuote";
+import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
-  const [todo, setTodos] = useState([]);
-  const [tasks, setTasks] = useState([]); 
-  
+  const [todos, setTodos] = useState([]);
+  const [tasks, setTasks] = useState([]);
+
+  // ---- Todo handlers ----
   const addTodo = (task) => {
     const newTodo = { id: Date.now(), text: task, completed: false };
-    setTodos([...todo, newTodo]);
+    setTodos([...todos, newTodo]);
   };
 
   const deleteTodo = (id) => {
-    setTodos(todo.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const toggleTodo = (id) => {
     setTodos(
-      todo.map((todo) =>
+      todos.map((todo) =>
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
   };
-  const addTask = (tasks) => {
-  setTasks([...tasks, tasks]);
-};
 
-  // Load saved todos on first render
+  // ---- Task handler ----
+  const addTask = (task) => {
+    const newTask = { id: Date.now(), text: task };
+    setTasks([...tasks, newTask]);
+  };
+
+  // ---- Local storage ----
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
     setTodos(savedTodos);
+
+    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(savedTasks);
   }, []);
 
-  // Save todos whenever they change
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todo));
-  }, [todo]);
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
-    <div className="App">
+    <Router>
       <header className="App-header">
         <img src="/focusMate.png" alt="focusMate Logo" />
         <h1>FocusMate</h1>
+        <p>Your companion for focused work and growth</p>
       </header>
-      <main>
-        <MotivationalQuote />
-        <AddTaskForm onAdd={addTask} />
-        <TodoList tasks={tasks} setTasks={setTasks} />
-        <PlantVisualizer todos={todo} />
-        <PomodoroTimer />
-      </main>
+      {/* Navbar */}
+      <nav className="flex gap-6 p-4 bg-gray-200">
+        <Link to="/">Home</Link>
+        <Link to="/tasks">Tasks</Link>
+        <Link to="/timer">Pomodoro</Link>
+        <Link to="/visualizer">Plant Visualizer</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        {/* Home page */}
+        <Route path="/" element={<h1>Welcome to FocusMate!</h1>} />
+
+        {/* Task list page (with quote + form) */}
+        <Route
+          path="/tasks"
+          element={
+            <div>
+              <MotivationalQuote />
+              <AddTaskForm onAdd={addTask} />
+              <TodoList tasks={tasks} setTasks={setTasks} />
+            </div>
+          }
+        />
+
+        {/* Pomodoro timer page */}
+        <Route path="/timer" element={<PomodoroTimer />} />
+
+        {/* Plant visualizer page */}
+        <Route path="/visualizer" element={<PlantVisualizer todos={todos} />} />
+      </Routes>
+
+      {/* Footer */}
       <footer>
         <p>&copy; 2025 FocusMate. All rights reserved.</p>
       </footer>
-    </div>
+    </Router>
   );
-
 }
 
 export default App;
+
