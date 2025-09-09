@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import "./pomodoroTimer.css"; 
+import "./PomodoroTimer.css"; 
 
 function PomodoroTimer() {
   const [time, setTime] = useState(1500); // 25 minutes in seconds
