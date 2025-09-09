@@ -1,22 +1,9 @@
 import MotivationalQuote from "./MotivationalQuote";
-import { useState } from "react";
 import "./App.css";
 
 
 function TodoList({ tasks, deleteTask, toggleTask }) {
-
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  };
-
-  const toggleTask = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
-  };
-    return (
+return (
     <div className="todo-container">
       <MotivationalQuote /> {/* Shows quote above the list */}
       <ul className="todo-list">
